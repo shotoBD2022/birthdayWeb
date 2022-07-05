@@ -22,3 +22,41 @@ body {
   --pink: #FDA2DB;
   --dark: #5B3775;
 }
+
+.container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  position: relative;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.icon p {
+  position: absolute;
+  font-family: 'Cubic_11', sans-serif;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--pink);
+  bottom: 20px;
+  font-size: 12px;
+  opacity: 0;
+  transition: .3s;
+}
+
+.icon:hover p {
+  opacity: 1;
+  bottom: 0px;
+}
+
+.icon:hover img {
+  filter: hue-rotate(50deg)
+}
