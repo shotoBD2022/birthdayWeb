@@ -1,16 +1,24 @@
+@font-face {
+  font-family: Cubic_11;
+  src: url(Cubic_11.ttf);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
 
-a {
-  color: inherit;
-  text-decoration: none;
+  background: center / cover url(/img/guild_dark.png);
+  align-items: center;
+  cursor: url(/img/sword.png), default;
 }
 
 * {
   box-sizing: border-box;
+}
+
+:root {
+  --theme-c: #A154C3;
+  --pink: #FDA2DB;
+  --dark: #5B3775;
 }
