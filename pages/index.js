@@ -5,9 +5,9 @@ import styles from '../styles/Home.module.css'
 
 const imageValue = [
   { name: "A", src: "bounty_board", textPos: { left: "100%" }, text: ["公會懸賞", "Bounty Board"], posSize: [21.1, 3.3, 17, 45] },
-  { name: "B", src: "magic_gramophone", textPos: { right: "100%" }, text: ["魔法留聲機", "Magic Gramophone"], posSize: [38.15, 48.16, 7.75, 23.85] },
-  { name: "C", src: "guilds_album", textPos: { right: "50%" }, text: ["公會相簿", "Guild's Album"], posSize: [64.65, 59.52, 26.2, 19.5] },
-  { name: "D", src: "adventure_quest", textPos: { right: "80%" }, text: ["冒險委託版", "Adventure Quest"], posSize: [28.4, 84.7, 13, 39.5] },
+  { name: "B", src: "magic_gramophone", textPos: { right: "300%" }, text: ["魔法留聲機", "Magic Gramophone"], posSize: [38.15, 48.16, 7.75, 23.85] },
+  { name: "C", src: "guilds_album", textPos: { right: "100%" }, text: ["公會相簿", "Guild's Album"], posSize: [64.65, 59.52, 26.2, 19.5] },
+  { name: "D", src: "adventure_quest", textPos: { right: "180%" }, text: ["冒險委託版", "Adventure Quest"], posSize: [28.4, 84.7, 13, 39.5] },
 ]
 
 export default function Home() {
@@ -82,7 +82,8 @@ export default function Home() {
                 <img src={`/img/BD_BG_${name}.png`} style={{ maxWidth: "100%", maxHeight: "100%" }} />
                 <div className={`${styles.item_name} ${name == "A" ? styles.reverse : ""}`} style={textPos}>
                   <span />
-                  {text[0]}
+                  {text[0]}<br />
+                  {text[1]}
                 </div>
               </div>
             </Link>
