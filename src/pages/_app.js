@@ -1,5 +1,5 @@
-import Container, { Contects } from '../src/layout'
-import '../styles/globals.css'
+import '../style/globals.css'
+import Container, { Contects } from '../constant/layout'
 
 function MyApp({ Component, pageProps }) {
   return (

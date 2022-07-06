@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import styles from '../styles/Home.module.css'
+import styles from '../style/Home.module.css'
 
 const imageValue = [
   { name: "A", src: "bounty_board", textPos: { left: "100%" }, text: ["公會懸賞", "Bounty Board"], posSize: [21.1, 3.3, 17, 45] },
@@ -71,7 +71,7 @@ export default function Home() {
       <Head>
         <title>shoto Happy Birthday</title>
         <meta name="description" content="" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/0.ico" />
       </Head>
       <div ref={ref} style={{ position: 'absolute', inset: "7em 2em 3em", overflow: "hidden", border: "4px solid var(--theme-c)" }}>
         <div style={{ ...bgSize, ...bgPos, position: 'absolute', background: "center / cover url(/img/guild.png)", transition: "left ease .5s" }}>
