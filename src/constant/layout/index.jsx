@@ -28,7 +28,7 @@ export const Contects = () => {
         <Link href={url} key={name} >
           <div className="icon">
             <p>{name.toUpperCase()}</p>
-            <img src={`/img/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
+            <img src={`/img/layout/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
           </div>
         </Link>
       ))}

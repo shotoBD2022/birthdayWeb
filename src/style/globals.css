@@ -8,9 +8,9 @@ body {
   padding: 0;
   margin: 0;
 
-  background: center / cover url(/img/guild_dark.png);
+  background: center / cover url(/img/layout/guild_dark.png);
   align-items: center;
-  cursor: url(/img/sword.png), default;
+  cursor: url(/img/cursor/sword.png), default;
 }
 
 * {
