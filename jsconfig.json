@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2020",
+    "jsx": "react",
+    "baseUrl": "./",
+    "paths": {
+      "@*": ["./src/*"]
+    },
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "src",
+    "pages"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
