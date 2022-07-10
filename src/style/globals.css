@@ -63,7 +63,7 @@ body {
   position: absolute;
   height: 14em;
   bottom: -1em;
-  z-index: 2;
+  z-index: 99;
 }
 
 .showCardContainer {
@@ -138,7 +138,7 @@ body {
   width: auto;
   position: relative;
   padding-right: 0;
-  z-index: 3;
+  z-index: 100;
 }
 
 .card.show>div:first-child {
