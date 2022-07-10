@@ -63,8 +63,12 @@ body {
 .aqContainer>.imgContainer {
   position: absolute;
   height: 14em;
-  bottom: -1em;
+  bottom: -1.3em;
   opacity: 0;
+}
+
+.aqContainer>img {
+  position: absolute;
 }
 
 .imgContainer>img {
@@ -199,5 +203,31 @@ body {
 @media (min-width:1400px) {
   .containerInside {
     width: 1320px;
+  }
+}
+
+.fallingPice {
+  animation: falling 11s ease-in infinite, wave 1s ease-in-out alternate infinite;
+  pointer-events: none;
+  z-index: 101;
+}
+
+@keyframes falling {
+  from {
+    top: -5%
+  }
+
+  to {
+    top: 120%
+  }
+}
+
+@keyframes wave {
+  from {
+    transform: translateX(-10px);
+  }
+
+  to {
+    transform: translateX(10px);
   }
 }
