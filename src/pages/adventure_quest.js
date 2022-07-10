@@ -1,14 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import Text from "@feature/adventure_quest/texts.json";
+import textList from "@feature/adventure_quest/texts.json";
 
 export default function Home() {
   const [showSingle, setShowSingle] = useState(-1)
-  const [textList, setTextList] = useState([])
+  const [imgCount, setImgCount] = useState(-1)
+  const [imgPos, setImgPos] = useState({})
   useEffect(() => {
-    setTextList(Text)
+    const count = parseInt(Math.random() * 4)
+    setImgCount(count)
+    setTimeout(() => {
+      setImgPos({ [count % 2 == 1 ? "left" : "right"]: "-3em", opacity: 1 })
+    }, 200);
   }, [])
-  const [imgUpdate, setImgUpdate] = useState(false)
-  const imgCount = useMemo(() => parseInt(Math.random() * 4), [imgUpdate])
 
   return <div style={{ position: "absolute", inset: 0, padding: "0 1em 1em", display: "flex", alignItems: "center", justifyContent: "center" }}>
     <div className="containerInside aq">
@@ -28,9 +31,9 @@ export default function Home() {
             </Card>
           </div>
         }
-        <div className="imgContainer" style={{ [imgCount % 2 == 1 ? "left" : "right"]: "-3em" }}>
+        {imgCount > -1 && <div className="imgContainer" style={imgPos}>
           <img src={`/img/adventure_quest/cha_${imgCount}.png`} />
-        </div>
+        </div>}
       </div>
     </div>
   </div >
@@ -40,7 +43,7 @@ const Card = ({ children, name, show, ...props }) => {
   return (
     <div className={`card${show ? " show" : ""}`} {...props} >
       <div>
-        {children && children.map(text => <>{text}<br /></>)}
+        {children && children.map((text, i) => <span key={i}>{text}<br /></span>)}
       </div>
       {name && <div style={{ textAlign: "right", marginTop: ".5em" }}>by.{name}</div>}
     </div>

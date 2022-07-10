@@ -63,10 +63,11 @@ body {
   position: absolute;
   height: 14em;
   bottom: -1em;
-  z-index: 99;
+  opacity: 0;
 }
-.imgContainer>img{
-  height:100%
+
+.imgContainer>img {
+  height: 100%
 }
 
 .showCardContainer {
