@@ -8,9 +8,10 @@ body {
   padding: 0;
   margin: 0;
 
-  background: center / cover url(/img/guild_dark.png);
+  background: center / cover url(/img/layout/guild_dark.png);
   align-items: center;
-  cursor: url(/img/sword.png), default;
+  cursor: url(/img/cursor/sword.png), default;
+  font-family: 'Cubic_11', sans-serif;
 }
 
 * {
@@ -21,6 +22,8 @@ body {
   --theme-c: #A154C3;
   --pink: #FDA2DB;
   --dark: #5B3775;
+  --purple: #C095C2;
+  --yellow: #EEE427;
 }
 
 .container {
@@ -29,6 +32,59 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.containerInside {
+  width: 100%;
+  height: 100%
+}
+
+.aqContainer {
+  background: url(/img/adventure_quest/bg_stripe.png);
+  border: solid 5px;
+  border-image: linear-gradient(to right bottom, #9C5796, #4B2768) 1;
+  padding: 1em;
+  height: 100%;
+  position: relative;
+}
+
+.aqContainer>.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow: auto;
+  position: relative;
+  padding-bottom: 12em;
+}
+
+.aqContainer>img {
+  position: absolute;
+  height: 14em;
+  bottom: -1em;
+}
+
+.showCardContainer {
+  position: absolute;
+  inset: 0px;
+  display: flex;
+  padding: 1em;
+  background-color: #000000aa;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.fullContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 2rem 1rem;
 }
 
 .icon {
@@ -59,4 +115,83 @@ body {
 
 .icon:hover img {
   filter: hue-rotate(50deg)
+}
+
+.card {
+  width: 99%;
+  margin: 1%;
+  border: solid 2px var(--purple);
+  box-shadow: 5px 5px var(--yellow);
+  background-color: #fff;
+  padding: .75em;
+  color: var(--purple);
+  transition: transform .2s, box-shadow .2s;
+  max-height: 90%;
+  overflow: auto;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+
+.card.show {
+  width: auto;
+  position: relative;
+  padding-right: 0;
+  z-index: 2;
+}
+
+.card.show>div:first-child {
+  display: block;
+  overflow: auto;
+}
+
+.card.show>div {
+  padding-right: .75em;
+}
+
+.card:hover {
+  box-shadow: 5px 13px var(--yellow);
+  transform: translateY(-10px);
+}
+
+.card.show:hover {
+  box-shadow: 5px 5px var(--yellow);
+  transform: translateY(0);
+}
+
+.card>div:first-child {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  white-space: pre-wrap;
+  flex: 1 1;
+}
+
+@media (min-width:768px) {
+  .containerInside {
+    width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .containerInside {
+    width: 960px;
+  }
+
+  .card {
+    width: 31%;
+  }
+}
+
+@media (min-width:1200px) {
+  .containerInside {
+    width: 1140px;
+  }
+}
+
+@media (min-width:1400px) {
+  .containerInside {
+    width: 1320px;
+  }
 }

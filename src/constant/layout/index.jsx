@@ -2,7 +2,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 
 export default function Container({ children }) {
-  const [windowHeight, setWindowHeight] = useState(0)
+  const [windowHeight, setWindowHeight] = useState("100vh")
   useEffect(() => {
     const onResize = () => setWindowHeight(window.innerHeight)
     window.addEventListener("resize", onResize)
@@ -23,15 +23,22 @@ const contectValue = [
 ]
 export const Contects = () => {
   return (
-    <div style={{ display: "flex", justifyContent: "flex-end", position: "absolute", inset: ".5em 0 auto" }}>
+    <div style={{ display: "flex", justifyContent: "flex-end", width: "100%", padding: "0 1em" }}>
       {contectValue.map(({ name, url }) => (
         <Link href={url} key={name} >
           <div className="icon">
             <p>{name.toUpperCase()}</p>
-            <img src={`/img/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
+            <img src={`/img/layout/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
           </div>
         </Link>
       ))}
+    </div>
+  )
+}
+export const Content = ({ children }) => {
+  return (
+    <div className="fullContent">
+      {children}
     </div>
   )
 }

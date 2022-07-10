@@ -69,17 +69,17 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>shoto Happy Birthday</title>
+        <title>shotoHBD2022</title>
         <meta name="description" content="" />
         <link rel="icon" href="/0.ico" />
       </Head>
-      <div ref={ref} style={{ position: 'absolute', inset: "7em 2em 3em", overflow: "hidden", border: "4px solid var(--theme-c)" }}>
-        <div style={{ ...bgSize, ...bgPos, position: 'absolute', background: "center / cover url(/img/guild.png)", transition: "left ease .5s" }}>
+      <div ref={ref} className={"containerInside"} style={{ position: 'relative', overflow: "hidden", border: "4px solid var(--theme-c)" }}>
+        <div style={{ ...bgSize, ...bgPos, position: 'absolute', background: "center / cover url(/img/index/guild.png)", transition: "left ease .5s" }}>
           <div className={styles.overlay} style={{ opacity: onHover }} />
           {imageValue.map(({ name, posSize, text, textPos, src }) => (
             <Link key={name} href={src} >
               <div onMouseEnter={() => setOnHover(1)} onMouseLeave={() => setOnHover(0)} className={styles.item} style={{ ...getImageValue(...posSize) }} >
-                <img src={`/img/BD_BG_${name}.png`} style={{ maxWidth: "100%", maxHeight: "100%" }} />
+                <img src={`/img/index/BD_BG_${name}.png`} style={{ maxWidth: "100%", maxHeight: "100%" }} />
                 <div className={`${styles.item_name} ${name == "A" ? styles.reverse : ""}`} style={textPos}>
                   <span />
                   {text[0]}<br />
@@ -90,8 +90,8 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <img src='/img/arrow.svg' onClick={() => { handleBgPos(-1) }} className={`${styles.arrowIcon} ${showScrollBtn.left ? "" : styles.disabled}`} style={{ right: 0, transform: "rotate(180deg)" }} />
-      <img src='/img/arrow.svg' onClick={() => { handleBgPos(1) }} className={`${styles.arrowIcon} ${showScrollBtn.right ? "" : styles.disabled}`} style={{ left: 0 }} />
+      <img src='/img/index/arrow.svg' onClick={() => { handleBgPos(-1) }} className={`${styles.arrowIcon} ${showScrollBtn.left ? "" : styles.disabled}`} style={{ right: 0, transform: "rotate(180deg)" }} />
+      <img src='/img/index/arrow.svg' onClick={() => { handleBgPos(1) }} className={`${styles.arrowIcon} ${showScrollBtn.right ? "" : styles.disabled}`} style={{ left: 0 }} />
     </>
   )
 }
