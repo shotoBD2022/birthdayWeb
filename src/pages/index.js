@@ -73,7 +73,7 @@ export default function Home() {
         <meta name="description" content="" />
         <link rel="icon" href="/0.ico" />
       </Head>
-      <div ref={ref} style={{ position: 'absolute', inset: "7em 2em 3em", overflow: "hidden", border: "4px solid var(--theme-c)" }}>
+      <div ref={ref} className={"containerInside"} style={{ position: 'relative', overflow: "hidden", border: "4px solid var(--theme-c)" }}>
         <div style={{ ...bgSize, ...bgPos, position: 'absolute', background: "center / cover url(/img/index/guild.png)", transition: "left ease .5s" }}>
           <div className={styles.overlay} style={{ opacity: onHover }} />
           {imageValue.map(({ name, posSize, text, textPos, src }) => (
