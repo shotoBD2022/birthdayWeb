@@ -28,8 +28,9 @@ export default function Home() {
             </Card>
           </div>
         }
-        <img src={`/img/adventure_quest/cha_${imgCount}.png`}
-          style={{ [imgCount % 2 == 1 ? "left" : "right"]: "-3em" }} />
+        <div className="imgContainer" style={{ [imgCount % 2 == 1 ? "left" : "right"]: "-3em" }}>
+          <img src={`/img/adventure_quest/cha_${imgCount}.png`} />
+        </div>
       </div>
     </div>
   </div >

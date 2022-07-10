@@ -59,10 +59,13 @@ body {
   padding-bottom: 12em;
 }
 
-.aqContainer>img {
+.aqContainer>.imgContainer {
   position: absolute;
   height: 14em;
   bottom: -1em;
+}
+.imgContainer>img{
+  height:100%
 }
 
 .showCardContainer {
