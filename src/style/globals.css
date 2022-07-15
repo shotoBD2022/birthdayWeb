@@ -45,6 +45,7 @@ body {
   border: solid 5px;
   border-image: linear-gradient(to right bottom, #9C5796, #4B2768) 1;
   padding: 1em;
+  padding-right: 4px;
   height: 100%;
   position: relative;
 }
@@ -58,6 +59,7 @@ body {
   overflow: auto;
   position: relative;
   padding-bottom: 12em;
+  padding-right: 2px;
 }
 
 .aqContainer>.imgContainer {
@@ -80,10 +82,11 @@ body {
   inset: 0px;
   display: flex;
   padding: 1em;
-  background-color: #000000aa;
+  background-color: rgba(34, 13, 49, 0.7);
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  animation: fadeIn .3s ease-in;
 }
 
 
@@ -211,6 +214,21 @@ body {
   pointer-events: none;
   z-index: 101;
 }
+img{
+  pointer-events: none;
+}
+
+
+::-webkit-scrollbar {
+  /* the scrollbar. */
+  border: solid 2px var(--purple);
+  margin-right: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--purple);
+  /* the draggable scrolling handle. */
+}
 
 @keyframes falling {
   from {
@@ -229,5 +247,19 @@ body {
 
   to {
     transform: translateX(10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 2em;
+  }
+
+  to {
+    opacity: 1;
+    padding-top: 1em;
+    padding-bottom: 1em;
   }
 }

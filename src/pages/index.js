@@ -54,7 +54,6 @@ export default function Home() {
       const ifOver = left + delta > 0
       const ifPassCenter = centerLeft > left && left + delta > centerLeft
       const newLeft = ifPassCenter ? centerLeft : ifOver ? 0 : left + delta
-      console.log({ ifOver, ifPassCenter, newLeft })
       setShowScrollBtn({ left: true, right: !ifOver })
       setBgPos({ top, left: newLeft })
     }
