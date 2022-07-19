@@ -214,10 +214,6 @@ body {
   pointer-events: none;
   z-index: 101;
 }
-img{
-  pointer-events: none;
-}
-
 
 ::-webkit-scrollbar {
   /* the scrollbar. */
