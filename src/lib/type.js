@@ -1,0 +1,18 @@
+export const imgAuthorList = [
+  "aaa",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+  "bbb",
+]

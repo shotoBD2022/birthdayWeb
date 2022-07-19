@@ -42,3 +42,15 @@ export const Content = ({ children }) => {
     </div>
   )
 }
+export const BorderLayout = ({ children }) => {
+  return (
+    <div style={{ position: "absolute", inset: 0, padding: "0 1em 1em", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div className="containerInside aq">
+        <div className="aqContainer">
+
+          {children}
+        </div>
+      </div>
+    </div >
+  )
+}

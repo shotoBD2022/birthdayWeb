@@ -131,7 +131,6 @@ body {
 }
 
 .card {
-  width: 99%;
   margin: 1%;
   border: solid 2px var(--purple);
   box-shadow: 5px 5px var(--yellow);
@@ -139,26 +138,34 @@ body {
   padding: .75em;
   color: var(--purple);
   transition: transform .2s, box-shadow .2s;
+}
+
+.card.text {
+  width: 99%;
   max-height: 90%;
   overflow: auto;
   line-height: 1.5;
   display: flex;
   flex-direction: column;
 }
+/* padding: 1em;
+border: solid 2px var(--purple);
+margin: 1em;
+background-color: #fff; */
 
-.card.show {
+.card.text.show {
   width: auto;
   position: relative;
   padding-right: 0;
   z-index: 100;
 }
 
-.card.show>div:first-child {
+.card.text.show>div:first-child {
   display: block;
   overflow: auto;
 }
 
-.card.show>div {
+.card.text.show>div {
   padding-right: .75em;
 }
 
@@ -167,12 +174,12 @@ body {
   transform: translateY(-10px);
 }
 
-.card.show:hover {
+.card.text.show:hover {
   box-shadow: 5px 5px var(--yellow);
   transform: translateY(0);
 }
 
-.card>div:first-child {
+.card.text>div:first-child {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -192,7 +199,7 @@ body {
     width: 960px;
   }
 
-  .card {
+  .card.text {
     width: 31%;
   }
 }

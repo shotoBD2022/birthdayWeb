@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import textList from "@feature/adventure_quest/texts.json";
+import { BorderLayout } from "@constant/layout";
 
 const decoValue = (pos) => [
   { name: "A", style: { width: "3em", top: "-2.5em", left: "-1em" } },
@@ -34,39 +35,35 @@ export default function Home() {
     return () => clearTimeout(timer)
   }, [decoArry])
 
-  return <div style={{ position: "absolute", inset: 0, padding: "0 1em 1em", display: "flex", alignItems: "center", justifyContent: "center" }}>
-    <div className="containerInside aq">
-      <div className="aqContainer">
-        <div className="content">
-          {textList.map((({ text, name }, i) =>
-            <Card key={i} name={name} onClick={() => setShowSingle(i)}>
-              {text}
-            </Card>
-          ))}
-        </div>
-        {showSingle > -1 &&
-          <div className="showCardContainer">
-            <div style={{ position: "absolute", inset: 0 }} onClick={() => setShowSingle(-1)} />
-            <Card name={textList[showSingle].name} show>
-              {textList[showSingle].text}
-            </Card>
-          </div>
-        }
-        {imgCount > -1 && <div className="imgContainer" style={imgPos}>
-          <img src={`/img/adventure_quest/cha_${imgCount}.png`} />
-        </div>}
-        {decoValue(imgCount % 2 == 1).map(({ name, style }, i) =>
-          <img key={i} src={`/img/adventure_quest/deco_${name}.png`} style={style} />
-        )}
-        {decoArry.map((data, i) => <Deco width={`${data}em`} left={pos[i]} key={i} />)}
+  return <BorderLayout>
+      <div className="content">
+        {textList.map((({ text, name }, i) =>
+          <Card key={i} name={name} onClick={() => setShowSingle(i)}>
+            {text}
+          </Card>
+        ))}
       </div>
-    </div>
-  </div >
+      {showSingle > -1 &&
+        <div className="showCardContainer">
+          <div style={{ position: "absolute", inset: 0 }} onClick={() => setShowSingle(-1)} />
+          <Card name={textList[showSingle].name} show>
+            {textList[showSingle].text}
+          </Card>
+        </div>
+      }
+      {imgCount > -1 && <div className="imgContainer" style={imgPos}>
+        <img src={`/img/adventure_quest/cha_${imgCount}.png`} />
+      </div>}
+      {decoValue(imgCount % 2 == 1).map(({ name, style }, i) =>
+        <img key={i} src={`/img/adventure_quest/deco_${name}.png`} style={style} />
+      )}
+      {decoArry.map((data, i) => <Deco width={`${data}em`} left={pos[i]} key={i} />)}
+  </BorderLayout>
 }
 
 const Card = ({ children, name, show, ...props }) => {
   return (
-    <div className={`card${show ? " show" : ""}`} {...props} >
+    <div className={`text card${show ? " show" : ""}`} {...props} >
       <div>
         {children && children.map((text, i) => <span key={i}>{text}<br /></span>)}
       </div>
