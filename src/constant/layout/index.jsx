@@ -17,20 +17,27 @@ export default function Container({ children }) {
 }
 const contectValue = [
   { name: "home", url: "/" },
-  { name: "team", url: "/" },
+  { name: "team", url: "/team" },
   { name: "plurk", url: "https://www.plurk.com/ShotoHBD2022" },
   { name: "twitter", url: "https://twitter.com/2022_HBD/" },
 ]
 export const Contects = () => {
   return (
     <div style={{ display: "flex", justifyContent: "flex-end", width: "100%", padding: "0 1em" }}>
-      {contectValue.map(({ name, url }) => (
-        <Link href={url} key={name} >
-          <div className="icon">
-            <p>{name.toUpperCase()}</p>
-            <img src={`/img/layout/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
-          </div>
-        </Link>
+      {contectValue.map(({ name, url }, i) => (
+        i < 2 ?
+          <Link href={url} key={name} >
+            <div className="icon">
+              <p>{name.toUpperCase()}</p>
+              <img src={`/img/layout/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
+            </div>
+          </Link>
+          : <a target="_blank" href={url}>
+            <div className="icon">
+              <p>{name.toUpperCase()}</p>
+              <img src={`/img/layout/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
+            </div>
+          </a>
       ))}
     </div>
   )
