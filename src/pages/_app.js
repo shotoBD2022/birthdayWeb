@@ -31,21 +31,23 @@ function MyApp({ Component, pageProps }) {
   return (
     <Container>
       <Head>
-        <title>shotoHBD2022</title>
+        <title>shotoHBD2022{
+          router.asPath == "/" ? "" :
+            router.asPath.replace("/", " | ").replace("_", " ").toUpperCase()
+        }
+        </title>
         <meta name="description" content="" />
         <link rel="icon" href="/0.ico" />
       </Head>
       <Contects />
-      <Content>
-        {loading &&
-          <div className='loaging'>
-            <img src='/img/logo1.png' width="100%" />
-            <div><div /></div>
-          </div>
-        }
-        <div style={{ opacity: loading ? 0 : 1, width: "100%", height: "100%" }}>
-          <Component {...pageProps} />
+      {loading &&
+        <div className='loaging'>
+          <img src='/img/logo1.png' width="100%" />
+          <div><div /></div>
         </div>
+      }
+      <Content show={!loading}>
+        <Component {...pageProps} />
       </Content>
     </Container>
   )
