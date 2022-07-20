@@ -26,6 +26,15 @@ body {
   --yellow: #EEE427;
 }
 
+.overlay {
+  transition: opacity ease-in 0.5s;
+  width: 100%;
+  height: 100%;
+  background: rgba(34, 13, 49, 0.7);
+  inset: 0;
+  position: absolute;
+}
+
 .container {
   padding: 0;
   display: flex;
@@ -44,7 +53,7 @@ body {
   background: url(/img/adventure_quest/bg_stripe.png);
   border: solid 5px;
   border-image: linear-gradient(to right bottom, #9C5796, #4B2768) 1;
-  padding: 1em;
+  padding: .25em;
   padding-right: 4px;
   height: 100%;
   position: relative;
@@ -56,10 +65,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  overflow: auto;
   position: relative;
-  padding-bottom: 12em;
-  padding-right: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2em 1em 12em;
 }
 
 .aqContainer>.imgContainer {
@@ -131,7 +140,6 @@ body {
 }
 
 .card {
-  width: 99%;
   margin: 1%;
   border: solid 2px var(--purple);
   box-shadow: 5px 5px var(--yellow);
@@ -139,6 +147,31 @@ body {
   padding: .75em;
   color: var(--purple);
   transition: transform .2s, box-shadow .2s;
+}
+
+.img.card {
+  max-width: 80%
+}
+
+
+.img.card>img {
+  max-height: auto;
+  max-width: 100%;
+}
+
+.img.card.show,
+.pancake.img.card.show {
+  max-width: 100%;
+}
+
+
+.img.card.show>img,
+.pancake.img.card.show>img {
+  max-height: 70vh;
+}
+
+.card.text {
+  width: 99%;
   max-height: 90%;
   overflow: auto;
   line-height: 1.5;
@@ -146,33 +179,33 @@ body {
   flex-direction: column;
 }
 
-.card.show {
+.card.text.show {
   width: auto;
   position: relative;
-  padding-right: 0;
+  padding-right: .25em;
   z-index: 100;
 }
 
-.card.show>div:first-child {
+.card.text.show>div:first-child {
   display: block;
   overflow: auto;
 }
 
-.card.show>div {
+.card.text.show>div {
   padding-right: .75em;
 }
 
 .card:hover {
   box-shadow: 5px 13px var(--yellow);
-  transform: translateY(-10px);
+  transform: translateY(-10px) !important;
 }
 
 .card.show:hover {
   box-shadow: 5px 5px var(--yellow);
-  transform: translateY(0);
+  transform: none !important;
 }
 
-.card>div:first-child {
+.card.text>div:first-child {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -181,9 +214,38 @@ body {
   flex: 1 1;
 }
 
+.loaging {
+  position: absolute;
+  max-width: 60%;
+  z-index: 99;
+}
+
+.loaging>div {
+  height: 1em;
+  border: solid 2px var(--theme-c);
+  position: relative
+}
+
+.loaging>div>div {
+  position: absolute;
+  background-color: var(--theme-c);
+  inset: 0;
+  animation: loadingBar 1s ease;
+}
+
 @media (min-width:768px) {
   .containerInside {
     width: 720px;
+  }
+
+  .loaging {
+    position: absolute;
+    max-width: 50%;
+    z-index: 99;
+  }
+
+  .img.card>img {
+    max-height: 50vh;
   }
 }
 
@@ -192,9 +254,80 @@ body {
     width: 960px;
   }
 
-  .card {
+  .card.text {
     width: 31%;
   }
+
+  .img.card {
+    max-width: 30%
+  }
+
+  .img.card>img {
+    max-height: 50vh;
+  }
+
+  .loaging {
+    position: absolute;
+    max-width: 30%;
+    z-index: 99;
+  }
+}
+
+.teamTagContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.teamTag {
+  padding: .5em;
+  border: solid 2px var(--theme-c);
+  color: var(--pink);
+  background-color: var(--dark);
+  margin: .25em;
+  min-width: 4em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.teamTag.focus {
+  border-color: #EEE427;
+  color: var(--yellow);
+}
+
+.memberBlock {
+  display: flex;
+  padding: 1em;
+}
+
+.memberBlock:not(:last-child) {
+  border-bottom: solid 1px var(--theme-c);
+}
+
+.memberIcon {
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+}
+
+.textBlock {
+  flex: 1 1 0;
+  color: #fff;
+  padding-left: 1em;
+}
+
+.textBlock>h3 {
+  color: var(--yellow);
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: .25em;
+}
+
+.textBlock>h3>span {
+  padding: .25em;
+  background-color: #C095C2;
+  color: #fff;
+  margin-left: .25em;
+  border-radius: 10px;
+  font-size: small;
 }
 
 @media (min-width:1200px) {
@@ -214,10 +347,6 @@ body {
   pointer-events: none;
   z-index: 101;
 }
-img{
-  pointer-events: none;
-}
-
 
 ::-webkit-scrollbar {
   /* the scrollbar. */
@@ -228,6 +357,10 @@ img{
 ::-webkit-scrollbar-thumb {
   background-color: var(--purple);
   /* the draggable scrolling handle. */
+}
+
+::selection {
+  background: var(--yellow);
 }
 
 @keyframes falling {
@@ -261,5 +394,15 @@ img{
     opacity: 1;
     padding-top: 1em;
     padding-bottom: 1em;
+  }
+}
+
+@keyframes loadingBar {
+  from {
+    right: 100%;
+  }
+
+  to {
+    right: 0;
   }
 }
