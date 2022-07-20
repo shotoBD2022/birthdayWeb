@@ -32,7 +32,7 @@ export const Contects = () => {
               <img src={`/img/layout/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
             </div>
           </Link>
-          : <a target="_blank" href={url}>
+          : <a target="_blank" href={url} key={name} >
             <div className="icon">
               <p>{name.toUpperCase()}</p>
               <img src={`/img/layout/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
@@ -42,9 +42,9 @@ export const Contects = () => {
     </div>
   )
 }
-export const Content = ({ children }) => {
+export const Content = ({ children, show }) => {
   return (
-    <div className="fullContent">
+    <div className="fullContent" style={{ opacity: show ? 1 : 0 }}>
       {children}
     </div>
   )

@@ -216,7 +216,8 @@ body {
 
 .loaging {
   position: absolute;
-  max-width: 30%
+  max-width: 60%;
+  z-index: 99;
 }
 
 .loaging>div {
@@ -235,6 +236,12 @@ body {
 @media (min-width:768px) {
   .containerInside {
     width: 720px;
+  }
+
+  .loaging {
+    position: absolute;
+    max-width: 50%;
+    z-index: 99;
   }
 
   .img.card>img {
@@ -258,6 +265,69 @@ body {
   .img.card>img {
     max-height: 50vh;
   }
+
+  .loaging {
+    position: absolute;
+    max-width: 30%;
+    z-index: 99;
+  }
+}
+
+.teamTagContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.teamTag {
+  padding: .5em;
+  border: solid 2px var(--theme-c);
+  color: var(--pink);
+  background-color: var(--dark);
+  margin: .25em;
+  min-width: 4em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.teamTag.focus {
+  border-color: #EEE427;
+  color: var(--yellow);
+}
+
+.memberBlock {
+  display: flex;
+  padding: 1em;
+}
+
+.memberBlock:not(:last-child) {
+  border-bottom: solid 1px var(--theme-c);
+}
+
+.memberIcon {
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+}
+
+.textBlock {
+  flex: 1 1 0;
+  color: #fff;
+  padding-left: 1em;
+}
+
+.textBlock>h3 {
+  color: var(--yellow);
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: .25em;
+}
+
+.textBlock>h3>span {
+  padding: .25em;
+  background-color: #C095C2;
+  color: #fff;
+  margin-left: .25em;
+  border-radius: 10px;
+  font-size: small;
 }
 
 @media (min-width:1200px) {
