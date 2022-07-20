@@ -42,7 +42,7 @@ const MemberBlock = ({ icon, name, team, link, text }) => {
     <div className="memberBlock" >
       <div className="memberIcon" style={{ background: `center / cover no-repeat url(/img/team/${icon})` }} />
       <div className="textBlock">
-        <h3>{name}{team.map(data => <span>{data}</span>)}</h3>
+        <h3>{name}{team.map((data, i) => <span key={i}>{data}</span>)}</h3>
         <div>{text.map((word, i) => <span key={i}>{word}<br /></span>)}</div>
         <div>{ }</div>
       </div>
