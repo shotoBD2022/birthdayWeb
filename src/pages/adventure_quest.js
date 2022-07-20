@@ -27,7 +27,6 @@ export default function Home() {
 
   useEffect(() => {
     if (decoArry.length > 6) return
-    console.log(decoArry)
     const timer = setTimeout(() => {
       decoArry.push(Math.random() * 2 + 1)
       setDecoArray([...decoArry])

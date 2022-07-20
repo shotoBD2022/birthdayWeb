@@ -47,7 +47,6 @@ export default function Home() {
       const ifPassCenter = centerLeft < left && left + delta < centerLeft
       const newLeft = ifPassCenter ? centerLeft : ifOver ? (width - bgSize.width) : (left + delta)
       setBgPos({ top, left: newLeft })
-      console.log({ ifOver, ifPassCenter, newLeft })
       setShowScrollBtn({ left: !ifOver, right: true })
     }
     else {
@@ -67,11 +66,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>shotoHBD2022</title>
-        <meta name="description" content="" />
-        <link rel="icon" href="/0.ico" />
-      </Head>
       <div ref={ref} className={"containerInside"} style={{ position: 'relative', overflow: "hidden", border: "4px solid var(--theme-c)" }}>
         <div style={{ ...bgSize, ...bgPos, position: 'absolute', background: "center / cover url(/img/index/guild.png)", transition: "left ease .5s" }}>
           <div className={styles.overlay} style={{ opacity: onHover }} />
