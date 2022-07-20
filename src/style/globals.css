@@ -26,6 +26,15 @@ body {
   --yellow: #EEE427;
 }
 
+.overlay {
+  transition: opacity ease-in 0.5s;
+  width: 100%;
+  height: 100%;
+  background: rgba(34, 13, 49, 0.7);
+  inset: 0;
+  position: absolute;
+}
+
 .container {
   padding: 0;
   display: flex;
@@ -152,8 +161,9 @@ body {
 
 .img.card.show,
 .pancake.img.card.show {
-  max-width: 100%
+  max-width: 100%;
 }
+
 
 .img.card.show>img,
 .pancake.img.card.show>img {
@@ -187,12 +197,12 @@ body {
 
 .card:hover {
   box-shadow: 5px 13px var(--yellow);
-  transform: translateY(-10px);
+  transform: translateY(-10px) !important;
 }
 
-.card.text.show:hover {
+.card.show:hover {
   box-shadow: 5px 5px var(--yellow);
-  transform: translateY(0);
+  transform: none !important;
 }
 
 .card.text>div:first-child {
@@ -202,6 +212,24 @@ body {
   overflow: hidden;
   white-space: pre-wrap;
   flex: 1 1;
+}
+
+.loaging {
+  position: absolute;
+  max-width: 30%
+}
+
+.loaging>div {
+  height: 1em;
+  border: solid 2px var(--theme-c);
+  position: relative
+}
+
+.loaging>div>div {
+  position: absolute;
+  background-color: var(--theme-c);
+  inset: 0;
+  animation: loadingBar 1s ease;
 }
 
 @media (min-width:768px) {
@@ -224,10 +252,6 @@ body {
   }
 
   .img.card {
-    max-width: 40%
-  }
-
-  .pancake.img.card {
     max-width: 30%
   }
 
@@ -258,7 +282,6 @@ body {
   /* the scrollbar. */
   border: solid 2px var(--purple);
   margin-right: 2px;
-  background-color: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -301,5 +324,15 @@ body {
     opacity: 1;
     padding-top: 1em;
     padding-bottom: 1em;
+  }
+}
+
+@keyframes loadingBar {
+  from {
+    right: 100%;
+  }
+
+  to {
+    right: 0;
   }
 }

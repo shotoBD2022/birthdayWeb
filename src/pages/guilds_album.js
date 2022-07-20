@@ -1,5 +1,4 @@
 import { BorderLayout } from "@constant/layout";
-import { imgAuthorList } from "@lib/type";
 import { useEffect, useState } from "react";
 import pancakeList from "@lib/pancake.json";
 
@@ -33,7 +32,7 @@ export default function Home() {
 const ImgCard = ({ url, author, show, scale, rotate, ...props }) => {
   return (
     <div className={"pancake img card" + (show ? " show" : "")}
-     style={{ transform: `rotate(${rotate}deg) scale(${scale})` }} {...props} >
+      style={show ? {} : { transform: `rotate(${rotate}deg) scale(${scale})` }} {...props} >
       <img src={url} />
       {author && <div style={{ textAlign: "right", marginTop: ".5em" }}>by.{author}</div>}
     </div>

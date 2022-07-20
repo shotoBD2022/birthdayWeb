@@ -32,7 +32,7 @@ export default function Home() {
 const ImgCard = ({ url, author, show, scale, rotate, ...props }) => {
   return (
     <div className={"img card" + (show ? " show" : "")}
-     style={{ transform: `rotate(${rotate}deg) scale(${scale})` }} {...props} >
+      style={show ? {} : { transform: `rotate(${rotate}deg) scale(${scale})` }} {...props} >
       <img src={url} />
       {author && <div style={{ textAlign: "right", marginTop: ".5em" }}>by.{author}</div>}
     </div>
