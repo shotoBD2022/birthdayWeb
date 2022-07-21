@@ -32,7 +32,7 @@ export const Contects = () => {
               <img src={`/img/layout/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
             </div>
           </Link>
-          : <a target="_blank" href={url} key={name} >
+          : <a target="_blank" href={url} key={name} rel="noreferrer noopener" >
             <div className="icon">
               <p>{name.toUpperCase()}</p>
               <img src={`/img/layout/icon_${name}.svg`} style={{ margin: "1em .3em" }} width="60px" />
