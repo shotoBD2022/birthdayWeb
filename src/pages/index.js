@@ -67,7 +67,6 @@ export default function Home() {
     height: `${height}%`
   })
   const handleDragStart = (e) => {
-    console.log("handleDragStart", e.pageX || e.touches[0].pageX)
     setOndrag(e.pageX || e.touches[0].pageX)
     backgroundImg.current.style.transition = "ease 0s"
   }
@@ -75,7 +74,6 @@ export default function Home() {
     if (!onDrag) return
     const eventPos = e.pageX || e.touches[0].pageX
     const dis = eventPos - onDrag
-    console.log("handleDragDis",eventPos, dis)
     const { width } = ref.current.getBoundingClientRect();
     (width - bgPos.left - dis < bgSize.width) &&
       (bgPos.left + dis < 0) &&
@@ -101,7 +99,7 @@ export default function Home() {
       onTouchEnd={handleDragRelease}
       style={{
         display: 'flex', alignItems: "center", justifyContent: "center", position: 'relative',
-        userSelect: "none"
+        userSelect: "none", WebkitUserSelect: "none"
       }}>
       <div ref={ref} className={"containerInside"} style={{ position: 'relative', overflow: "hidden", border: "4px solid var(--theme-c)" }}>
         <div ref={backgroundImg} style={{
