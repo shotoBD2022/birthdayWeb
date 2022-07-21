@@ -110,7 +110,7 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 0 2rem 1rem;
+  padding: 0 1rem 1rem;
 }
 
 .icon {
@@ -360,6 +360,7 @@ a {
   border: solid 2px var(--purple);
   margin-right: 2px;
   cursor: url(/img/cursor/sword2.png), pointer;
+  width: 1em;
 }
 
 ::-webkit-scrollbar-thumb {

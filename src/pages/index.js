@@ -16,6 +16,9 @@ export default function Home() {
   const [showScrollBtn, setShowScrollBtn] = useState({ left: false, right: false })
   const ref = useRef()
   const [onHover, setOnHover] = useState(0)
+  const [onDrag, setOndrag] = useState()
+  const [dragDis, setDragDis] = useState(0)
+  const backgroundImg = useRef()
 
   useEffect(() => {
     const onResize = () => {
@@ -36,10 +39,10 @@ export default function Home() {
     return () => { window.removeEventListener("resize", onResize) }
   }, [])
 
-  const handleBgPos = (dir) => {
+  const handleBgPos = (dir, value) => {
     const { top, left } = bgPos
     const { width } = ref.current.getBoundingClientRect()
-    const delta = width * dir
+    const delta = value ? value : (width * dir)
     const centerLeft = (width - bgSize.width) / 2
 
     if (delta < 0) {
@@ -63,11 +66,50 @@ export default function Home() {
     width: `${width}%`,
     height: `${height}%`
   })
+  const handleDragStart = (e) => {
+    console.log("handleDragStart", e.pageX || e.touches[0].pageX)
+    setOndrag(e.pageX || e.touches[0].pageX)
+    backgroundImg.current.style.transition = "ease 0s"
+  }
+  const handleDragDis = (e) => {
+    if (!onDrag) return
+    const eventPos = e.pageX || e.touches[0].pageX
+    const dis = eventPos - onDrag
+    console.log("handleDragDis",eventPos, dis)
+    const { width } = ref.current.getBoundingClientRect();
+    (width - bgPos.left - dis < bgSize.width) &&
+      (bgPos.left + dis < 0) &&
+      setDragDis(dis)
+  }
+
+  const handleDragRelease = () => {
+    setOndrag();
+    handleBgPos(dragDis)
+    setDragDis(0);
+    backgroundImg.current.style.transition = "ease .5s"
+  }
 
   return (
-    <>
+    <div className={"containerInside"}
+      onMouseDown={handleDragStart}
+      onMouseMove={handleDragDis}
+      onMouseUp={handleDragRelease}
+      onMouseLeave={handleDragRelease}
+
+      onTouchStart={handleDragStart}
+      onTouchMove={handleDragDis}
+      onTouchEnd={handleDragRelease}
+      style={{
+        display: 'flex', alignItems: "center", justifyContent: "center", position: 'relative',
+        userSelect: "none"
+      }}>
       <div ref={ref} className={"containerInside"} style={{ position: 'relative', overflow: "hidden", border: "4px solid var(--theme-c)" }}>
-        <div style={{ ...bgSize, ...bgPos, position: 'absolute', background: "center / cover url(/img/index/guild.png)", transition: "left ease .5s" }}>
+        <div ref={backgroundImg} style={{
+          ...bgSize, ...bgPos, position: 'absolute',
+          background: "center / cover url(/img/index/guild.png)",
+          transition: "ease .5s",
+          transform: `translateX(${dragDis}px)`
+        }}>
           <div className={styles.overlay} style={{ opacity: onHover }} />
           {imageValue.map(({ name, posSize, text, textPos, src }) => (
             <Link key={name} href={src} >
@@ -83,8 +125,12 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <img src='/img/index/arrow.svg' onClick={() => { handleBgPos(-1) }} className={`${styles.arrowIcon} ${showScrollBtn.left ? "" : styles.disabled}`} style={{ right: 0, transform: "rotate(180deg)" }} />
-      <img src='/img/index/arrow.svg' onClick={() => { handleBgPos(1) }} className={`${styles.arrowIcon} ${showScrollBtn.right ? "" : styles.disabled}`} style={{ left: 0 }} />
-    </>
+      <img src='/img/index/arrow.svg' onClick={() => { handleBgPos(-1) }}
+        className={`${styles.arrowIcon} ${showScrollBtn.left ? "" : styles.disabled}`}
+        style={{ right: "-1.25em", transform: "rotate(180deg)" }} />
+      <img src='/img/index/arrow.svg' onClick={() => { handleBgPos(1) }}
+        className={`${styles.arrowIcon} ${showScrollBtn.right ? "" : styles.disabled}`}
+        style={{ left: "-1.25em" }} />
+    </div>
   )
 }
