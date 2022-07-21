@@ -44,7 +44,14 @@ const MemberBlock = ({ icon, name, team, link, text }) => {
       <div className="textBlock">
         <h3>{name}{team.map((data, i) => <span key={i}>{data}</span>)}</h3>
         <div>{text.map((word, i) => <span key={i}>{word}<br /></span>)}</div>
-        <div>{ }</div>
+        <div style={{ marginTop: ".5em" }}>{
+          ["plurk", "twitter"].map(type =>
+            link[type] && <a key={type} href={link[type]} target="_blank">
+              <img src={`/img/layout/icon_${type}.svg`} width="30px" />
+            </a>
+          )
+        }</div>
+
       </div>
     </div>
   )

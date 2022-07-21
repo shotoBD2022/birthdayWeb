@@ -18,6 +18,10 @@ body {
   box-sizing: border-box;
 }
 
+a {
+  cursor: url(/img/cursor/sword2.png), pointer;
+}
+
 :root {
   --theme-c: #A154C3;
   --pink: #FDA2DB;
@@ -114,7 +118,7 @@ body {
 }
 
 .icon:hover {
-  cursor: pointer;
+  cursor: url(/img/cursor/sword2.png), pointer;
 }
 
 .icon p {
@@ -147,6 +151,7 @@ body {
   padding: .75em;
   color: var(--purple);
   transition: transform .2s, box-shadow .2s;
+  cursor: url(/img/cursor/sword2.png), pointer;
 }
 
 .img.card {
@@ -162,6 +167,7 @@ body {
 .img.card.show,
 .pancake.img.card.show {
   max-width: 100%;
+  cursor: url(/img/cursor/sword.png), pointer;
 }
 
 
@@ -286,6 +292,7 @@ body {
   min-width: 4em;
   text-align: center;
   white-space: nowrap;
+  cursor: url(/img/cursor/sword2.png), pointer;
 }
 
 .teamTag.focus {
@@ -352,6 +359,7 @@ body {
   /* the scrollbar. */
   border: solid 2px var(--purple);
   margin-right: 2px;
+  cursor: url(/img/cursor/sword2.png), pointer;
 }
 
 ::-webkit-scrollbar-thumb {

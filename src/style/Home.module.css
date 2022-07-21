@@ -66,7 +66,7 @@
 .arrowIcon {
   position: absolute;
   width: 20px;
-  cursor: pointer;
+  cursor: url(/img/cursor/sword2.png), pointer;
   transition: ease .3s;
   margin: 0 5px;
   opacity: 1;
