@@ -17,7 +17,7 @@ const pos = [50, 30, 10, 70, 101, -2, 85]
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true)
-  
+
   useEffect(() => {
     setShowIntro(!getCookie("adventure"))
   }, [])
@@ -98,8 +98,8 @@ const Intro = ({ onClick }) => {
   return (
     <div className="introText">
       <h1><KeyInMultiText finished={() => setStep(1)}>
-        [Mission 1]<br />
-        募集！祝福話語與慶祝圖像！(祝福話語)
+        {"[Mission 1]"}<br />
+        {"募集！祝福話語與慶祝圖像！(祝福話語)"}
       </KeyInMultiText></h1>
       {step > 0 && < KeyInMultiText finished={() => setStep(2)}>
         有什麼想對偉大的會長說？或是想描繪會長的生日慶祝肖像？<br />

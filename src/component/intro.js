@@ -49,11 +49,11 @@ export const StratWord = ({ onClick }) => {
     {step > 0 &&
       <h2>
         <KeyInMultiText finished={() => setStep(2)}>
-          [任務名稱]<br />
-          Shoto’s Birthday Adventure <br />
+          {"[任務名稱]"}<br />
+          {"Shoto’s Birthday Adventure"}<br />
           <br />
-          [任務目的] <br />
-          為我們最 cool 最可愛的會長 Shoto 慶生 <br /> <br />
+          {"[任務目的]"} <br />
+          {"為我們最 cool 最可愛的會長 Shoto 慶生"}<br /> <br />
         </KeyInMultiText>
       </h2>
     }

@@ -6,7 +6,7 @@ import { getCookie, setCookie } from "cookies-next";
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true)
-  
+
   useEffect(() => {
     setShowIntro(!getCookie("bounty_board"))
   }, [])
@@ -17,7 +17,7 @@ export default function Home() {
   </>
 }
 
-export function Content({show}) {
+export function Content({ show }) {
   const [imgProps, setImgProps] = useState([]);
   const [showSingle, setShowSingle] = useState(-1)
 
@@ -59,8 +59,8 @@ const Intro = ({ onClick }) => {
   return (
     <div className="introText">
       <h1><KeyInMultiText finished={() => setStep(1)}>
-        [Mission 1]<br />
-        募集！祝福話語與慶祝圖像！(慶祝圖像)
+        {"[Mission 1]"}<br />
+        {"募集！祝福話語與慶祝圖像！(慶祝圖像)"}
       </KeyInMultiText></h1>
       {step > 0 && < KeyInMultiText finished={() => setStep(2)}>
         有什麼想對偉大的會長說？或是想描繪會長的生日慶祝肖像？<br />

@@ -59,7 +59,7 @@ const Intro = ({ onClick }) => {
   return (
     <div className="introText">
       <h1><KeyInMultiText finished={() => setStep(1)}>
-        [Mission 2]<br />
+        {"[Mission 2]"}<br />
         出遊！鬆餅男孩的願望！
       </KeyInMultiText></h1>
       {step > 0 && < KeyInMultiText finished={() => setStep(2)}>
