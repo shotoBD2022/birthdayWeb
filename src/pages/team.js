@@ -46,7 +46,7 @@ const MemberBlock = ({ icon, name, team, link, text }) => {
         <div>{text.map((word, i) => <span key={i}>{word}<br /></span>)}</div>
         <div style={{ marginTop: ".5em" }}>{
           ["plurk", "twitter"].map(type =>
-            link[type] && <a key={type} href={link[type]} target="_blank">
+            link[type] && <a key={type} href={link[type]} target="_blank" rel="noreferrer noopener">
               <img src={`/img/layout/icon_${type}.svg`} width="30px" />
             </a>
           )
