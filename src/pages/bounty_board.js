@@ -3,6 +3,7 @@ import { BorderLayout } from "@constant/layout";
 import { imgAuthorList } from "@lib/type";
 import { useEffect, useState } from "react";
 import { getCookie, setCookie } from "cookies-next";
+import Image from "next/image";
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true)
@@ -22,14 +23,16 @@ export function Content({ show }) {
   const [showSingle, setShowSingle] = useState(-1)
 
   useEffect(() => {
-    const arr = imgAuthorList.map((author, i) => ({
+    const arr = imgAuthorList.map((data, i) => ({
       url: `/img/bounty_board/pic${i + 1}.png`,
-      author,
+      ...data,
       scale: Math.random() * 0.1 + 1,
       rotate: Math.random() * 10 * (i % 2 * 2 - 1)
     }))
+    console.log(arr)
     setImgProps(arr)
   }, [])
+
 
   return <BorderLayout show={show}>
     <div className="content" style={{ alignItems: "center", justifyContent: "space-evenly", paddingTop: "2em" }}>
@@ -44,12 +47,36 @@ export function Content({ show }) {
   </BorderLayout >
 }
 
-const ImgCard = ({ url, author, show, scale, rotate, ...props }) => {
+const ImgCard = ({ url, name, link, show, scale, rotate, ...props }) => {
+  const [showHint, setShowHint] = useState(false)
   return (
     <div className={"img card" + (show ? " show" : "")}
       style={show ? {} : { transform: `rotate(${rotate}deg) scale(${scale})` }} {...props} >
       <img src={url} />
-      {author && <div style={{ textAlign: "right", marginTop: ".5em" }}>by.{author}</div>}
+      <div style={{ display: "flex", marginTop: ".5em", alignItems: "center" }}>
+
+        {show && ["plurk", "twitter", "facebook"].map(type =>
+          link[type] && <a key={type} href={link[type]}
+            target="_blank" rel="noreferrer noopener">
+            <div className="icon">
+              <Image src={`/img/layout/icon_${type}_B.svg`} width={30} height={30} />
+            </div>
+          </a>
+        )}
+        {
+          show && link.discord &&
+          <div className="icon">
+            <div style={{
+              position: "absolute", top: "-30px", textAlign: "center", backgroundColor: "#55555599",
+              borderRadius: "10px", padding: ".25em 1em", color: "#fff", left: "-29px", whiteSpace: "nowrap",
+              opacity: showHint ? 1 : 0, transition: "1s ease"
+            }}>{link.discord}</div>
+            <Image src={`/img/layout/icon_discord_B.svg`} width={30} height={30}
+              onClick={() => { setShowHint(!showHint) }} />
+          </div>
+        }
+        <span style={{ flex: "1 1 0", textAlign: "right" }}>by.{name}</span>
+      </div>
     </div>
   )
 }

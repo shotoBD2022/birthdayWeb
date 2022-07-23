@@ -1,21 +1,115 @@
 export const imgAuthorList = [
-  "連臻",
-  "★彡매실주 Maesil-ju",
-  "SagoOishii",
-  "SagoOishii",
-  "sheep",
-  "呆醬(Daichan)",
-  "默翼(moyi)",
-  "默翼(moyi)",
-  "ONI",
-  "MoYa",
-  "玥晞(yueshi)",
-  "玥晞(yueshi)",
-  "摸摸(Momo)",
-  "summerway",
-  "柚子酒(yuzushu)",
-  "MoYa",
-  "Shimasen",
+  {
+    name: "連臻",
+    link: { discord: "連臻#2754(DC)" }
+  },
+  {
+    name: "★彡매실주 Maesil-ju",
+    link: {
+      discord: "★彡매실주🥃#0572",
+    }
+  },
+  {
+    name: "SagoOishii",
+    link: {
+      discord: "17641#7544",
+      twitter: "https://twitter.com/x17641"
+    }
+  },
+  {
+    name: "SagoOishii",
+    link: {
+      discord: "17641#7544",
+      twitter: "https://twitter.com/x17641"
+    }
+  },
+  {
+    name: "sheep",
+    link: {
+      twitter: "https://twitter.com/toomeiiro_xx"
+    }
+  },
+  {
+    name: "呆醬(Daichan)",
+    link: {
+      twitter: "https://twitter.com/Daichan8714"
+    }
+  },
+  {
+    name: "默翼(moyi)",
+    link: {
+      twitter: "https://twitter.com/moyiann_0420",
+      facebook: "https://www.facebook.com/profile.php?id=100022654681060"
+    }
+  },
+  {
+    name: "默翼(moyi)",
+    link: {
+      twitter: "https://twitter.com/moyiann_0420",
+      facebook: "https://www.facebook.com/profile.php?id=100022654681060"
+    }
+  },
+  {
+    name: "ONI",
+    link: {
+      twitter: "https://twitter.com/Oni_09876",
+    }
+  },
+  {
+    name: "MoYa",
+    link: {
+      twitter: "https://twitter.com/avgcerlon",
+      plurk: "https://plurk.com/avgcerlon",
+    }
+  },
+  {
+    name: "玥晞(yueshi)",
+    link: {
+      facebook: "https://www.facebook.com/yue.shi.cosplay/",
+      twitter: "https://twitter.com/yue_shi_cosplay",
+      discord: "玥晞#0152"
+    }
+  },
+  {
+    name: "玥晞(yueshi)",
+    link: {
+      facebook: "https://www.facebook.com/yue.shi.cosplay/",
+      twitter: "https://twitter.com/yue_shi_cosplay",
+      discord: "玥晞#0152"
+    }
+  },
+  {
+    name: "摸摸(Momo)",
+    link: {
+      twitter: "https://twitter.com/Momo_hsuan0510",
+    }
+  },
+  {
+    name: "summerway",
+    link: {
+      facebook: "https://www.facebook.com/profile.php?id=100077210477551",
+    }
+  },
+  {
+    name: "柚子酒(yuzushu)",
+    link: {
+      twitter: "https://twitter.com/yuzushu6",
+    }
+  },
+  {
+    name: "MoYa",
+    link: {
+      twitter: "https://twitter.com/avgcerlon",
+      plurk: "https://plurk.com/avgcerlon",
+    }
+  },
+  {
+    name: "Shimasen",
+    link: {
+      twitter: "https://twitter.com/shimasen_s",
+      discord: "Shimasen#0119",
+    }
+  },
 ]
 
 export const member = [

@@ -168,6 +168,7 @@ a {
 .pancake.img.card.show {
   max-width: 100%;
   cursor: url(/img/cursor/sword.png), pointer;
+  z-index: 2;
 }
 
 
