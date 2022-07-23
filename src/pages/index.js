@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import styles from '../style/Home.module.css'
@@ -36,7 +35,15 @@ export default function Home() {
     }
     onResize()
     window.addEventListener("resize", onResize)
-    return () => { window.removeEventListener("resize", onResize) }
+    document.addEventListener("webkitfullscreenchange", onResize)
+    document.addEventListener("fullscreenchange", onResize)
+    window.addEventListener("orientationchange", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize)
+      document.removeEventListener("webkitfullscreenchange", onResize) 
+      document.removeEventListener("fullscreenchange", onResize)
+      window.removeEventListener("orientationchange", onResize);
+    }
   }, [])
 
   const handleBgPos = (dir, value) => {

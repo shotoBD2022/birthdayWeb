@@ -255,30 +255,6 @@ a {
   }
 }
 
-@media (min-width:992px) {
-  .containerInside {
-    width: 960px;
-  }
-
-  .card.text {
-    width: 31%;
-  }
-
-  .img.card {
-    max-width: 30%
-  }
-
-  .img.card>img {
-    max-height: 50vh;
-  }
-
-  .loaging {
-    position: absolute;
-    max-width: 30%;
-    z-index: 99;
-  }
-}
-
 .teamTagContainer::-webkit-scrollbar {
   display: none;
 }
@@ -337,10 +313,113 @@ a {
   font-size: small;
 }
 
+.introBox {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+.introBox>img {
+  width: 100%;
+  margin-bottom: 1em;
+  animation: showUp linear .5s forwards;
+  max-height: 0;
+}
+
+.button {
+  padding: .25em 1em;
+  color: var(--pink);
+  border: solid 2px var(--pink);
+  transition: ease .2s;
+  display: inline-block;
+  margin-top: 1em;
+  position: relative;
+  padding-right: 30px;
+}
+
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  transition: all .2s ease;
+}
+
+.button::before {
+  border: 3px solid var(--pink);
+  border-width: 3px 3px 0 0;
+  width: 10px;
+  height: 10px;
+  top: 6px;
+  right: 10px;
+  transform: rotate(45deg);
+}
+
+
+.button::after {
+  border-bottom: 3px solid var(--pink);
+  width: 0;
+  top: 11px;
+  right: 10px;
+}
+
+
+.button:hover {
+  color: var(--yellow);
+  border-color: var(--yellow);
+  padding-right: 40px;
+}
+
+.button:hover:after {
+  width: 25px;
+}
+.button:hover::before,
+.button:hover::after{
+  border-color: var(--yellow);
+}
+
+.introText {
+  color: #fff;
+  text-align: center;
+  padding-bottom: 5em;
+}
+
+@media (min-width:600px) {
+  .introBox {
+    width: 15%;
+  }
+}
+
+@media (min-width:992px) {
+  .containerInside {
+    width: 960px;
+  }
+
+  .card.text {
+    width: 31%;
+  }
+
+  .img.card {
+    max-width: 30%
+  }
+
+  .img.card>img {
+    max-height: 50vh;
+  }
+
+  .loaging {
+    position: absolute;
+    max-width: 30%;
+    z-index: 99;
+  }
+
+}
+
 @media (min-width:1200px) {
   .containerInside {
     width: 1140px;
   }
+
 }
 
 @media (min-width:1400px) {
@@ -413,5 +492,15 @@ a {
 
   to {
     right: 0;
+  }
+}
+
+@keyframes showUp {
+  form {
+    max-height: 0;
+  }
+
+  to {
+    max-height: 100%;
   }
 }

@@ -3,11 +3,24 @@ import Container, { Contects, Content } from '@constant/layout'
 import Head from 'next/head'
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { getCookie } from 'cookies-next';
+import StartIntro from '@component/intro';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [showIntro, setShowIntro] = useState(true);
 
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setShowIntro(!getCookie("visited"))
+  }, [])
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000);
+  }, [showIntro])
 
   useEffect(() => {
     const handleStart = () => setLoading(true)
@@ -26,7 +39,7 @@ function MyApp({ Component, pageProps }) {
       router.events.off('routeChangeComplete', handleComplete)
       router.events.off('routeChangeError', handleComplete)
     }
-  })
+  }, [])
 
   return (
     <Container>
@@ -47,7 +60,8 @@ function MyApp({ Component, pageProps }) {
         </div>
       }
       <Content show={!loading}>
-        <Component {...pageProps} />
+        {showIntro && <StartIntro onClick={() => setShowIntro(false)} />}
+        {!showIntro && <Component {...pageProps} />}
       </Content>
     </Container>
   )
