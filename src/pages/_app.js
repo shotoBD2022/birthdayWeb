@@ -31,13 +31,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <Container>
       <Head>
-        <title>shotoHBD2022{
-          router.asPath == "/" ? "" :
-            router.asPath.replace("/", " | ").replace("_", " ").toUpperCase()
-        }
-        </title>
-        <meta name="description" content="" />
+        <title>shotoHBD2022</title>
+        <meta name="description" content="Shoto's Birthday Adventure" />
+        <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
         <link rel="icon" href="/0.ico" />
+        <meta property="og:title" content="shotoHBD2022" />
+        <meta property="og:image" content="/thumbnail.png" />
+        <meta property="og:description" content="Shoto's Birthday Adventure" />
       </Head>
       <Contects />
       {loading &&
