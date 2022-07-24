@@ -99,7 +99,7 @@ const Intro = ({ onClick }) => {
         {"歡迎投稿到 Shoto's Birthday Adventure 任務組，一起獻上最誠摯的祝福！"}<br />
         <br />
         {"Anything you would like to say to our great Guild Leader?"}<br />
-        {" Or drawing him to celebrate his birthday?"}<br />
+        {"Or drawing him to celebrate his birthday?"}<br />
         {"Welcome to send all the best wishes to Shoto's Birthday Adventure!"}<br />
       </KeyInMultiText>}
 

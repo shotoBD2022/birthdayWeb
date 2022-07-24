@@ -107,12 +107,13 @@ export const MissionHint = ({ onClick }) => {
         setSteps(2)
       }, 500);
     }
-    if (step == 6) {
+    if (step == 6 || step == 5) {
       setTimeout(() => {
         setSteps(7)
       }, 500);
     }
   }, [step])
+
   return (
     <div className="introText" style={{
       display: 'flex', flexDirection: "column", alignItems: "center",
@@ -133,8 +134,8 @@ export const MissionHint = ({ onClick }) => {
             <img src={url} alt="" />
             {step > 1 &&
               <KeyInMultiText finished={() => {
-                ++stepCount.current;
-                stepCount.current > step && setSteps(stepCount.current)
+                stepCount.current++;
+                setSteps(stepCount.current)
               }}>
                 {text}
               </KeyInMultiText>
