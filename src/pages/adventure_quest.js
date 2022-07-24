@@ -103,13 +103,15 @@ const Intro = ({ onClick }) => {
       </KeyInMultiText></h1>
 
       {step > 0 && <h2 style={{ marginTop: 0, color: "var(--theme-c)" }}><KeyInMultiText finished={() => setStep(2)}>
-        {"Wanted! Birthday message and Celebration arts!(Birthday message)"}<br />
+        {"Wanted! Birthday messages and Celebration arts!(Celebration arts)"}<br />
       </KeyInMultiText></h2>}
+
       {step > 1 && < KeyInMultiText finished={() => setStep(3)}>
         {"有什麼想對偉大的會長說？或是想描繪會長的生日慶祝肖像？"}<br />
         {"歡迎投稿到 Shoto's Birthday Adventure 任務組，一起獻上最誠摯的祝福！"}<br />
         <br />
-        {"Anything you would like to say to the great Guild Leader? Or would like to draw him celebrating birthday?"}<br />
+        {"Anything you would like to say to our great Guild Leader?"}<br />
+        {"Or drawing him to celebrate his birthday?"}<br />
         {"Welcome to send all the best wishes to Shoto's Birthday Adventure!"}<br />
       </KeyInMultiText>}
 
