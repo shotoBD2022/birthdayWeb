@@ -42,7 +42,7 @@ export const Warn = ({ onClick }) => {
       </h2>}
       {step > 2 && <h3 style={{ marginTop: 0 }}>
         <KeyInMultiText finished={() => setStep(4)}>
-        For mobile devices, we suggest viewing with full screen mode on upper right corner.<br />
+          For mobile devices, we suggest viewing with full screen mode on upper right corner.<br />
         </KeyInMultiText>
       </h3>}
 
@@ -57,8 +57,6 @@ export const Warn = ({ onClick }) => {
   )
 }
 
-
-
 export const StratWord = ({ onClick }) => {
   const [step, setStep] = useState(0)
   return <div className="introText">
@@ -70,8 +68,7 @@ export const StratWord = ({ onClick }) => {
     </h2>
     {step > 0 && <h3 style={{ marginTop: 0 }}>
       <KeyInMultiText finished={() => setStep(2)}>
-        {"Hello, Guildies or travelers passing by!"}
-        {"New quest for the Adventurer’s Guild!"}<br />
+        {"Hello, Guildies or travelers passing by! New quest for the Adventurer’s Guild!"}<br />
       </KeyInMultiText>
     </h3>}
 
@@ -103,6 +100,7 @@ export const StratWord = ({ onClick }) => {
 
 export const MissionHint = ({ onClick }) => {
   const [step, setSteps] = useState(0)
+  const stepCount = useRef(0)
   useEffect(() => {
     if (step == 1) {
       setTimeout(() => {
@@ -122,7 +120,7 @@ export const MissionHint = ({ onClick }) => {
     }}>
       <div>
         <h1>
-          <KeyInMultiText finished={() => setSteps(step + 1)}>
+          <KeyInMultiText finished={() => setSteps(++stepCount.current)}>
             {"尋找目標"}
             <br />
             {"Target to find"}
@@ -134,7 +132,10 @@ export const MissionHint = ({ onClick }) => {
           <div className="introBox" key={i}>
             <img src={url} alt="" />
             {step > 1 &&
-              <KeyInMultiText finished={() => setSteps(step + 1)}>
+              <KeyInMultiText finished={() => {
+                ++stepCount.current;
+                stepCount.current > step && setSteps(stepCount.current)
+              }}>
                 {text}
               </KeyInMultiText>
             }
