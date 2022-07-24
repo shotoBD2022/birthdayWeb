@@ -40,7 +40,7 @@ export function Content({ show }) {
     <video controls width={width * 0.8} height={height * 0.8} >
       <source src="/ShotoHBD.mp4"
         type="video/mp4" />
-      Sorry, your browser doesn't support embedded videos.
+      {"Sorry, your browser doesn't support embedded videos."}
     </video>
   </div>
 }
