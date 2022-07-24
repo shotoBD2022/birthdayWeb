@@ -209,7 +209,7 @@ export const member = [
     name: "Hypnors",
     link: { twitter: "https://www.twitter.com/hypnors" },
     text: [
-      "Happy Birthday to our Alpha manly dominant Sigma Guild Leader. Happy birthday wish you all the best and happiness. Every milestone is a miniature victory on the road to achieving your goals. May you achieve everything you dreamt about. Proud of you, bro! Ｆ",
+      "Happy Birthday to our Alpha manly dominant Sigma Guild Leader. Happy birthday, wish you all the best and happiness. Every milestone is a miniature victory on the road to achieving your goals. May you achieve everything you dreamt about. Proud of you, bro!",
     ],
     team: ["translate"],
     icon: "icon9.jpg"

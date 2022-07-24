@@ -58,22 +58,37 @@ const Intro = ({ onClick }) => {
   const [step, setStep] = useState(0)
   return (
     <div className="introText">
-      <h1><KeyInMultiText finished={() => setStep(1)}>
-        {"[Mission 2]"}<br />
+      <h1 style={{ marginBottom: 0, color: "var(--theme-c)" }}><KeyInMultiText finished={() => setStep(1)}>
+        {"[Quest 2]"}<br />
         {"出遊！鬆餅男孩的願望！"}
       </KeyInMultiText></h1>
-      {step > 0 && < KeyInMultiText finished={() => setStep(2)}>
+
+      {step > 0 && <h2 style={{ marginTop: 0, color: "var(--theme-c)" }}><KeyInMultiText finished={() => setStep(2)}>
+        {"On a quest! Pancake boy’s wishes!"}<br />
+      </KeyInMultiText></h2>}
+
+      {step > 1 && step < 4 && < KeyInMultiText finished={() => setStep(3)}>
         {"偉大的公會長說過：「我喜歡吃鬆餅」"}<br />
         {"偉大的公會長也說過：「今年夏天我想要去海邊玩」"}<br />
         {"如果四處探險是他的願望，那就敲敲門板，讓我們 Let's goooooo！"}<br />
         <br />
+        {"The great Guild Leader once said: “I love pancakes!”"}<br />
+        {"The great Guild Leader had also said: “I want to go to the beach this summer!”"}<br />
+        {"If adventures are his wish, then knock the door we have to move, Let’s gooooo!!"}<br />
+      </KeyInMultiText>}
+
+      {step > 3 && < KeyInMultiText finished={() => setStep(5)}>
         {"在本次企劃中，我們想邀請大家一起帶 Shoto 去吃好吃鬆餅，"}<br />
         {"或是帶 Shoto 出去玩並分享照片！"}<br />
+        {"列印我們可愛的 shoto 跟鬆餅或是風景合照！"}<br />
         <br />
-        {"利用 ibon 列印我們可愛的 shoto 後跟鬆餅或是風景合照，"}<br />
-        {"將照片上傳至推特、噗浪並加上 #鬆餅男孩 的 hashtag 就算參與成功。"}<br />
+        {"For this quest, we’d like to invite everyone to take Shoto out for delicious pancakes "}<br />
+        {"or take him for a trip and share your photos!"}<br />
+        {"Print out our cute Shoto and take him out for pancakes and a trip!"}<br />
       </KeyInMultiText>}
-      {step > 1 && <div className="button" onClick={onClick}><KeyInWord>{"觀看任務成果"}</KeyInWord></div>}
+
+      {step == 3 && <div className="button" onClick={() => setStep(4)}><KeyInWord>{"next"}</KeyInWord></div>}
+      {step > 4 && <div className="button" onClick={onClick}><KeyInWord>{"觀看任務成果 View quest results"}</KeyInWord></div>}
     </div >
   )
 }

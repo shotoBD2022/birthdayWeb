@@ -24,40 +24,80 @@ export const Warn = ({ onClick }) => {
   const [step, setStep] = useState(0);
   return (
     <div className="introText">
-      <h1>!</h1>
-      <h2>
+      <h1 style={{ color: "var(--yellow)" }}>!</h1>
+      <h2 style={{ marginBottom: 0 }}>
         <KeyInMultiText finished={() => setStep(1)}>
-          建議使用電腦瀏覽器來獲取更好的體驗 <br />
-          手機瀏覽器建議點選右上角全螢幕模式來觀看網頁<br />
-          *full screen is not available in iphone<br />
+          建議使用電腦瀏覽器來獲取更好的體驗<br />
         </KeyInMultiText>
       </h2>
-      {step > 0 && <div className="button" onClick={onClick}>OK</div>}
-    </div>
+      {step > 0 && < h3 style={{ marginTop: 0 }}>
+        <KeyInMultiText finished={() => setStep(2)}>
+          Recommend using computer for better experience.<br />
+        </KeyInMultiText>
+      </h3>}
+      {step > 1 && <h2 style={{ marginBottom: 0 }}>
+        <KeyInMultiText finished={() => setStep(3)}>
+          若使用手機瀏覽器建議點選右上角全螢幕模式來觀看網頁<br />
+        </KeyInMultiText>
+      </h2>}
+      {step > 2 && <h3 style={{ marginTop: 0 }}>
+        <KeyInMultiText finished={() => setStep(4)}>
+        For mobile devices, we suggest viewing with full screen mode on upper right corner.<br />
+        </KeyInMultiText>
+      </h3>}
+
+      {step > 3 && <h3 style={{ color: "var(--yellow)" }}>
+        <KeyInMultiText finished={() => setStep(5)}>
+          *iPhone並不支援全螢幕模式<br />
+          *Full screen not available on iPhone<br />
+        </KeyInMultiText>
+      </h3>}
+      {step > 4 && <div className="button" onClick={onClick}>OK</div>}
+    </div >
   )
 }
+
+
 
 export const StratWord = ({ onClick }) => {
   const [step, setStep] = useState(0)
   return <div className="introText">
-    <h1>
+    <h2 style={{ marginBottom: 0 }}>
       <KeyInMultiText finished={() => setStep(1)}>
-        公會成員們，亦或是路過的冒險者們大家好！<br />
-        本冒險者公會有新任務發布！
+        {"公會成員們，亦或是路過的冒險者們大家好！"}<br />
+        {"本冒險者公會有新任務發布！"}<br />
       </KeyInMultiText>
-    </h1>
-    {step > 0 &&
-      <h2>
-        <KeyInMultiText finished={() => setStep(2)}>
-          {"[任務名稱]"}<br />
-          {"Shoto’s Birthday Adventure"}<br />
-          <br />
-          {"[任務目的]"} <br />
-          {"為我們最 cool 最可愛的會長 Shoto 慶生"}<br /> <br />
+    </h2>
+    {step > 0 && <h3 style={{ marginTop: 0 }}>
+      <KeyInMultiText finished={() => setStep(2)}>
+        {"Hello, Guildies or travelers passing by!"}
+        {"New quest for the Adventurer’s Guild!"}<br />
+      </KeyInMultiText>
+    </h3>}
+
+    {step > 1 && <h3 style={{ color: "var(--theme-c)", marginBottom: ".25em" }}><KeyInMultiText finished={() => setStep(3)}>
+      {"[任務名稱 Main Quest]"}<br />
+    </KeyInMultiText></h3>}
+    {step > 2 &&
+      <h3>
+        <KeyInMultiText finished={() => setStep(4)}>
+          {"Shoto’s Birthday Adventure"}<br /><br />
         </KeyInMultiText>
-      </h2>
+      </h3>
     }
-    {step > 1 && <div className="button" onClick={onClick}>Next</div>}
+    {step > 3 &&
+      <h3 style={{ color: "var(--theme-c)", marginBottom: ".25em" }}><KeyInMultiText finished={() => setStep(5)}>
+        {"[任務目的 Quest Info]"}<br />
+      </KeyInMultiText></h3>}
+    {step > 4 && <h3>
+      <KeyInMultiText finished={() => setStep(6)}>
+        {"為我們最 cool 最可愛的會長 Shoto 慶生"}<br />
+        {"Celebrate birthday for our coolest and cutest Guild Leader Shoto."}<br />
+        <br />
+      </KeyInMultiText>
+    </h3>
+    }
+    {step > 5 && <div className="button" onClick={onClick}>Next</div>}
   </div>
 }
 
@@ -83,9 +123,9 @@ export const MissionHint = ({ onClick }) => {
       <div>
         <h1>
           <KeyInMultiText finished={() => setSteps(step + 1)}>
-            記住要找的任務
+            {"尋找目標"}
             <br />
-            Remember to find mission
+            {"Target to find"}
           </KeyInMultiText>
         </h1>
       </div>
@@ -133,6 +173,7 @@ export const KeyInMultiText = ({ children, finished = () => { } }) => {
 export const KeyInWord = ({ children, delayTime = 50, finished = () => { } }) => {
   const [texts, setTexts] = useState("");
   const wordLength = useRef(0)
+
   useEffect(() => {
     if (wordLength.current > children.length) {
       finished(true)
@@ -143,9 +184,19 @@ export const KeyInWord = ({ children, delayTime = 50, finished = () => { } }) =>
       if (wordLength.current > children.length) { finished(true) }
       setTexts(children.slice(0, wordLength.current))
     }, delayTime);
+
+    const pass = () => {
+      wordLength.current = children.length
+    }
+    window.addEventListener("click", pass)
+    window.addEventListener("touchstart", pass)
     return () => {
+      window.removeEventListener("touchstart", pass)
       clearTimeout(timer)
     }
   }, [texts])
+
+
+
   return <span>{texts}</span>
 }
